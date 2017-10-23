@@ -87,9 +87,14 @@ class DB {
             return '';
         }
 
-        //$rowStart = ( ( $this->page - 1 ) * $recordPerPage );
-
+        //$rowStart = ( ( $this->page - 1 ) * $this->limit );
         $total = $this->totalRecords($query);
+
+        //if total record  is less than $this->limit or equal
+        //then reutrn null;
+        if ($total <= $this->limit) {
+            return;
+        }
         $last = ceil( $total / $this->limit );
         
         //calculate start of range for link printing
@@ -101,11 +106,11 @@ class DB {
        // debugging
        /* echo '$total: '.$total.' | '; //total rows
         echo '$row_start: '.$rowStart.' | '; //total rows
-        echo '$limit: '.$recordPerPage.' | '; //total rows per query
+        echo '$limit: '.$this->limit.' | '; //total rows per query
         echo '$start: '.$start.' | '; //start printing links from
         echo '$end: '.$end.' | '; //end printing links at
         echo '$last: '.$last.' | '; //last page
-        echo '$page: '.$this->_page.' | '; //current page
+        echo '$page: '.$this->page.' | '; //current page
         echo '$links: '.$links.' <br /> '; //links */
 
         //ul boot strap class - "pagination pagination-sm"
