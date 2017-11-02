@@ -7,7 +7,7 @@ class Url
 
     public static function getParam($par) 
     {
-		return isset($_GET[$par]) && $_GET[$par] != "" ? $_GET[$par] : null;
+		return isset($_GET[$par]) && $_GET[$par] != "" ? $_GET[$par] : NULL;
 	}
 
 	public static function cPage() 

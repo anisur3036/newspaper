@@ -1,5 +1,5 @@
 <?php
-class DB {
+abstract class DB {
     protected $dbh;
     protected $stmt;
     public $numOfRows;
