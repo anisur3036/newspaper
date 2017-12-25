@@ -1,13 +1,9 @@
  <?php
- class Pagination { 
+ class Pagination  extends DB{
     public $table = 'posts_list';
+    public $page;
     public $limit;
     public $db;
-
-    public function __construct()
-    {
-        $this->db = new DB();
-    }
 
     public function paging($query, $limit)
     {

@@ -1,10 +1,19 @@
 <?php
 
-class App
+class App 
 {
-	protected $db;
-    public function __construct()
+    /**
+     * @var DB
+     */
+    private $mysqldb;
+
+    /**
+     * App constructor.
+     * @param DB $mysqldb
+     */
+    public function __construct(DB $mysqldb)
     {
-		  $this->db = new DB();
+
+        $this->mysqldb = $mysqldb;
     }
 }
